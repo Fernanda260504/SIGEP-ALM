@@ -18,7 +18,7 @@ public class PermisoController {
     @Autowired
     private PermisoService permisoService;
 
-    // Solicitar permiso
+    // 🔹 Solicitar permiso
     @PostMapping
     public ResponseEntity<ApiResponse<PermisoLaboral>> solicitar(
             @RequestBody PermisoLaboral permiso) {
@@ -35,7 +35,20 @@ public class PermisoController {
         );
     }
 
-    // Consultar permisos por empleado
+    // 🔹 Consultar todos los permisos
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<PermisoLaboral>>> listarTodos() {
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Lista de todos los permisos",
+                        permisoService.listarTodos(),
+                        HttpStatus.OK
+                )
+        );
+    }
+
+    // 🔹 Consultar permisos por empleado
     @GetMapping("/empleado/{id}")
     public ResponseEntity<ApiResponse<List<PermisoLaboral>>> porEmpleado(
             @PathVariable Long id) {
