@@ -18,8 +18,10 @@ public class EmpleadoController {
     @Autowired
     private EmpleadoService empleadoService;
 
+    // 🔹 Crear empleado
     @PostMapping
     public ResponseEntity<ApiResponse<Empleado>> crear(@RequestBody Empleado empleado) {
+
         Empleado nuevo = empleadoService.registrar(empleado);
 
         return new ResponseEntity<>(
@@ -32,12 +34,31 @@ public class EmpleadoController {
         );
     }
 
+    // 🔹 Obtener todos los empleados
     @GetMapping
     public ResponseEntity<ApiResponse<List<Empleado>>> listar() {
+
+        List<Empleado> empleados = empleadoService.listar();
+
         return ResponseEntity.ok(
                 ApiResponse.success(
                         "Lista de empleados",
-                        empleadoService.listar(),
+                        empleados,
+                        HttpStatus.OK
+                )
+        );
+    }
+
+    // 🔹 Obtener empleado por ID (MUY útil para debug)
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<Empleado>> obtenerPorId(@PathVariable Long id) {
+
+        Empleado empleado = empleadoService.buscarPorId(id);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Empleado encontrado",
+                        empleado,
                         HttpStatus.OK
                 )
         );

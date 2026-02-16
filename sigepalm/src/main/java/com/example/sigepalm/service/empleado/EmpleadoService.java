@@ -19,4 +19,9 @@ public class EmpleadoService {
     public List<Empleado> listar() {
         return empleadoRepository.findAll();
     }
+    public Empleado buscarPorId(Long id) {
+        return empleadoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Empleado no encontrado"));
+    }
+
 }

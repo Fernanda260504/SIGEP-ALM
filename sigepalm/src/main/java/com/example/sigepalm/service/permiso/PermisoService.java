@@ -35,4 +35,9 @@ public class PermisoService {
     public List<PermisoLaboral> permisosPorEmpleado(Long idEmpleado) {
         return permisoRepository.findByEmpleadoId(idEmpleado);
     }
+
+    public List<PermisoLaboral> listarTodos() {
+        return permisoRepository.findAll();
+    }
+
 }
