@@ -1,0 +1,227 @@
+/* Login.css - Estilos Würth México */
+
+:root {
+  --wurth-red: #CC0000;
+  --wurth-dark-red: #A50000;
+  --wurth-light-red: #E60000;
+  --wurth-gray: #4A4A4A;
+  --wurth-light-gray: #F5F5F5;
+}
+
+/* Fondo con gradiente corporativo */
+.wurth-bg {
+  background: linear-gradient(135deg, #CC0000 0%, #8B0000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.wurth-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+  background-size: 50px 50px;
+  background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+  pointer-events: none;
+}
+
+/* Card principal */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1.5rem 3rem rgba(204, 0, 0, 0.3) !important;
+  border-color: rgba(204, 0, 0, 0.1);
+}
+
+/* Logo container */
+.wurth-logo-container {
+  display: inline-block;
+  padding: 15px 25px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wurth-title {
+  color: var(--wurth-gray);
+  font-size: 1.75rem;
+}
+
+/* Input groups con estilo Würth */
+.wurth-input-group .form-control:focus,
+.wurth-input-group .form-select:focus {
+  border-color: var(--wurth-red);
+  box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.15);
+}
+
+.wurth-input-group .input-group-text {
+  background-color: transparent;
+  border-color: #dee2e6;
+}
+
+.wurth-input-group .form-control,
+.wurth-input-group .form-select {
+  border-color: #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.wurth-input-group .form-control:hover,
+.wurth-input-group .form-select:hover {
+  border-color: var(--wurth-red);
+}
+
+/* Botón principal Würth */
+.btn-wurth {
+  background: linear-gradient(135deg, var(--wurth-red) 0%, var(--wurth-dark-red) 100%);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.btn-wurth:hover {
+  background: linear-gradient(135deg, var(--wurth-dark-red) 0%, var(--wurth-red) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+  color: white;
+}
+
+.btn-wurth:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(204, 0, 0, 0.3);
+}
+
+.btn-wurth:focus {
+  box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.25);
+}
+
+/* Links con color corporativo */
+.wurth-link {
+  color: var(--wurth-red);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.wurth-link:hover {
+  color: var(--wurth-dark-red);
+  text-decoration: underline !important;
+}
+
+/* Footer del card */
+.card-footer {
+  background-color: rgba(245, 245, 245, 0.8) !important;
+}
+
+.card-footer small {
+  font-size: 0.8rem;
+}
+
+/* Iconos con color corporativo */
+.text-danger {
+  color: var(--wurth-red) !important;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animación del logo */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.wurth-logo-container {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .card-body {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .wurth-title {
+    font-size: 1.5rem;
+  }
+
+  .btn-wurth {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .wurth-logo-container svg {
+    width: 100px;
+    height: 35px;
+  }
+}
+
+/* Estados de validación con colores Würth */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--wurth-red);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: #28a745;
+}
+
+/* Mejora de accesibilidad */
+.form-control:focus,
+.form-select:focus,
+.btn:focus {
+  outline: 2px solid var(--wurth-red);
+  outline-offset: 2px;
+}
+
+/* Toggle button password */
+.btn-light:hover {
+  background-color: rgba(204, 0, 0, 0.05);
+}
+
+/* Select personalizado */
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23CC0000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Placeholder con color corporativo */
+.form-control::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.form-control:focus::placeholder {
+  color: rgba(204, 0, 0, 0.5);
+}
