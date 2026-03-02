@@ -1,0 +1,355 @@
+/* Settings.css - Estilos Configuración */
+
+:root {
+  --wurth-red: #CC0000;
+  --wurth-dark-red: #A50000;
+}
+
+/* Container */
+.settings-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.settings-header h1 i {
+  font-size: 2rem;
+}
+
+/* Settings Menu */
+.settings-menu {
+  position: sticky;
+  top: 100px;
+}
+
+.settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #6B7280;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.settings-nav-item i:first-child {
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}
+
+.settings-nav-item span {
+  flex: 1;
+}
+
+.settings-nav-item .arrow {
+  font-size: 0.875rem;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.settings-nav-item:hover {
+  background-color: rgba(204, 0, 0, 0.05);
+  color: var(--wurth-red);
+  transform: translateX(3px);
+}
+
+.settings-nav-item:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.settings-nav-item.active {
+  background: linear-gradient(135deg, var(--wurth-red), var(--wurth-dark-red));
+  color: white;
+  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+}
+
+.settings-nav-item.active .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Settings Section */
+.settings-section {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+/* Settings Group */
+.settings-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--wurth-red);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: #9CA3AF;
+}
+
+/* Form Switch */
+.form-check-input {
+  width: 3rem;
+  height: 1.5rem;
+  cursor: pointer;
+  background-color: #D1D5DB;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.form-check-input:checked {
+  background-color: var(--wurth-red);
+  border-color: var(--wurth-red);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
+  outline: none;
+}
+
+.form-check-label {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.form-check-label i {
+  color: var(--wurth-red);
+}
+
+/* Notification Group */
+.notification-group {
+  background-color: #F9FAFB;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid #E5E7EB;
+}
+
+.notification-group h6 {
+  color: #111827;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Alert Success */
+.alert-success {
+  border-radius: 8px;
+  border: 2px solid #10B981;
+  background-color: #ECFDF5;
+  color: #065F46;
+  padding: 0.75rem 1rem;
+  animation: slideDown 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alert Info */
+.alert-info {
+  border-radius: 8px;
+  background-color: #DBEAFE;
+  border: 2px solid #3B82F6;
+  color: #1E40AF;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Buttons */
+.btn-outline-secondary {
+  border: 2px solid #D1D5DB;
+  color: #6B7280;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #F3F4F6;
+  border-color: #9CA3AF;
+  color: #374151;
+}
+
+.btn-wurth-red {
+  background: linear-gradient(135deg, var(--wurth-red) 0%, var(--wurth-dark-red) 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+}
+
+.btn-wurth-red:hover {
+  background: linear-gradient(135deg, var(--wurth-dark-red) 0%, var(--wurth-red) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+  color: white;
+}
+
+.btn-wurth-red:active {
+  transform: translateY(0);
+}
+
+/* Form Text */
+.form-text {
+  color: #6B7280;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .settings-menu {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .settings-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .settings-nav-item {
+    flex-direction: column;
+    min-width: 100px;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .settings-nav-item span {
+    font-size: 0.85rem;
+  }
+
+  .settings-nav-item .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .notification-group {
+    padding: 1rem;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.9rem;
+    padding: 0.65rem;
+  }
+
+  .btn-outline-secondary,
+  .btn-wurth-red {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .d-flex.gap-3 {
+    flex-direction: column;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.form-check-input:checked {
+  animation: pulse 0.3s ease;
+}
+
+/* Hover Effects */
+.settings-group:hover .form-label {
+  color: var(--wurth-red);
+}
+
+/* Card */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}

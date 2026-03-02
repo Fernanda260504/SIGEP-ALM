@@ -1,0 +1,458 @@
+/* PermissionTable.css - Estilos de Tabla de Permisos */
+
+:root {
+  --wurth-red: #CC0000;
+  --wurth-dark-red: #A50000;
+}
+
+/* Table Container */
+.table-responsive {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Styling */
+.permission-table {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.permission-table thead {
+  background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+  border-bottom: 2px solid var(--wurth-red);
+}
+
+.permission-table thead th {
+  font-weight: 600;
+  color: var(--wurth-red);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 0.75rem;
+  border: none;
+  vertical-align: middle;
+}
+
+.permission-table tbody tr {
+  border-bottom: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+}
+
+.permission-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.permission-table tbody tr:hover {
+  background-color: #F9FAFB;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.permission-table td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+}
+
+/* Checkbox Styling */
+.form-check-input {
+  cursor: pointer;
+  border: 2px solid #D1D5DB;
+  width: 18px;
+  height: 18px;
+  transition: all 0.2s ease;
+}
+
+.form-check-input:checked {
+  background-color: var(--wurth-red);
+  border-color: var(--wurth-red);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
+  border-color: var(--wurth-red);
+}
+
+/* Employee Info */
+.employee-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.employee-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--wurth-red), var(--wurth-dark-red));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Permission Type */
+.permission-type {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background-color: #F3F4F6;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Reason Cell */
+.reason-cell {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #6B7280;
+}
+
+/* Date Info */
+.date-info {
+  display: flex;
+  align-items: center;
+  color: #6B7280;
+  font-size: 0.85rem;
+}
+
+.date-info i {
+  color: var(--wurth-red);
+}
+
+/* Duration Badge */
+.duration-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  background-color: #EFF6FF;
+  color: #1E40AF;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Priority Badge */
+.priority-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Status Badges */
+.badge {
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-warning {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.badge-success {
+  background-color: #D1FAE5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+
+.badge-danger {
+  background-color: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-success-action,
+.btn-danger-action,
+.btn-info-action {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-success-action {
+  background-color: #D1FAE5;
+  color: #059669;
+}
+
+.btn-success-action:hover {
+  background-color: #059669;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.btn-danger-action {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+.btn-danger-action:hover {
+  background-color: #DC2626;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-info-action {
+  background-color: #DBEAFE;
+  color: #2563EB;
+}
+
+.btn-info-action:hover {
+  background-color: #2563EB;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ========== MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content-custom {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header-custom {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.btn-close-custom {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #6B7280;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-close-custom:hover {
+  background-color: #F3F4F6;
+  color: var(--wurth-red);
+}
+
+.modal-body-custom {
+  padding: 2rem;
+}
+
+.employee-detail-card {
+  background-color: #F9FAFB;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--wurth-red);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.detail-value {
+  color: #111827;
+  font-weight: 500;
+  text-align: right;
+}
+
+.modal-footer-custom {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-footer-custom .btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.modal-footer-custom .btn-secondary {
+  background-color: #F3F4F6;
+  color: #374151;
+  border: 1px solid #D1D5DB;
+}
+
+.modal-footer-custom .btn-secondary:hover {
+  background-color: #E5E7EB;
+}
+
+.modal-footer-custom .btn-success {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border: none;
+}
+
+.modal-footer-custom .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+}
+
+.modal-footer-custom .btn-danger {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  border: none;
+}
+
+.modal-footer-custom .btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+/* Form Styling in Modal */
+.form-label {
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--wurth-red);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .permission-table {
+    font-size: 0.8rem;
+  }
+
+  .permission-table td,
+  .permission-table th {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .employee-info {
+    gap: 0.5rem;
+  }
+
+  .employee-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+  }
+
+  .reason-cell {
+    max-width: 150px;
+  }
+
+  .modal-content-custom {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  .modal-header-custom,
+  .modal-body-custom,
+  .modal-footer-custom {
+    padding: 1rem;
+  }
+
+  .modal-footer-custom {
+    flex-direction: column;
+  }
+
+  .modal-footer-custom .btn {
+    width: 100%;
+  }
+}

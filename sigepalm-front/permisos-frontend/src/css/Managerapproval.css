@@ -1,0 +1,366 @@
+/* ManagerApproval.css - Estilos Würth México */
+
+:root {
+  --wurth-red: #CC0000;
+  --wurth-dark-red: #A50000;
+  --wurth-light-red: #FFE5E5;
+  --wurth-gray: #4A4A4A;
+  --wurth-light-gray: #F8F9FA;
+}
+
+/* Container Principal */
+.manager-approval-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Section */
+.approval-header h1 {
+  font-size: 2rem;
+  color: var(--wurth-gray);
+}
+
+.approval-header h1 i {
+  font-size: 2rem;
+}
+
+/* Botón Würth Rojo */
+.btn-wurth-red {
+  background: linear-gradient(135deg, var(--wurth-red) 0%, var(--wurth-dark-red) 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-wurth-red:hover {
+  background: linear-gradient(135deg, var(--wurth-dark-red) 0%, var(--wurth-red) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+  color: white;
+}
+
+.btn-outline-danger {
+  border-color: var(--wurth-red);
+  color: var(--wurth-red);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--wurth-red);
+  border-color: var(--wurth-red);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Statistics Cards */
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid transparent;
+  height: 100%;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card específicas por tipo */
+.stat-card-danger {
+  border-left-color: var(--wurth-red);
+}
+
+.stat-card-danger:hover {
+  background: linear-gradient(135deg, white 0%, rgba(204, 0, 0, 0.03) 100%);
+}
+
+.stat-card-success {
+  border-left-color: #28a745;
+}
+
+.stat-card-success:hover {
+  background: linear-gradient(135deg, white 0%, rgba(40, 167, 69, 0.03) 100%);
+}
+
+.stat-card-warning {
+  border-left-color: #ffc107;
+}
+
+.stat-card-warning:hover {
+  background: linear-gradient(135deg, white 0%, rgba(255, 193, 7, 0.03) 100%);
+}
+
+.stat-card-info {
+  border-left-color: #17a2b8;
+}
+
+.stat-card-info:hover {
+  background: linear-gradient(135deg, white 0%, rgba(23, 162, 184, 0.03) 100%);
+}
+
+/* Iconos de las Cards */
+.stat-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card-danger .stat-card-icon {
+  background: linear-gradient(135deg, var(--wurth-red), var(--wurth-dark-red));
+  color: white;
+  box-shadow: 0 4px 10px rgba(204, 0, 0, 0.2);
+}
+
+.stat-card-success .stat-card-icon {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.stat-card-warning .stat-card-icon {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
+}
+
+.stat-card-info .stat-card-icon {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+  box-shadow: 0 4px 10px rgba(23, 162, 184, 0.2);
+}
+
+.stat-card:hover .stat-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Contenido de las Cards */
+.stat-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--wurth-gray);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-card-subtitle {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+/* Search Bar */
+.input-group-text {
+  background-color: transparent;
+}
+
+.form-control:focus {
+  border-color: var(--wurth-red);
+  box-shadow: 0 0 0 0.2rem rgba(204, 0, 0, 0.15);
+}
+
+/* Filter Buttons */
+.btn-group .btn {
+  transition: all 0.3s ease;
+}
+
+/* Cards principales */
+.card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.card-footer {
+  border-radius: 0 0 12px 12px !important;
+}
+
+/* Badges */
+.badge {
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.bg-danger-subtle {
+  background-color: var(--wurth-light-red) !important;
+}
+
+.text-danger {
+  color: var(--wurth-red) !important;
+}
+
+/* Quick Actions Panel */
+.bg-danger-subtle .btn-outline-danger {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.bg-danger-subtle .btn-outline-danger:hover {
+  background-color: var(--wurth-red);
+  border-color: var(--wurth-red);
+  color: white;
+  transform: translateX(3px);
+}
+
+/* Animaciones */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.stat-card {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .approval-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .stat-card-value {
+    font-size: 2rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Loading state */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Tooltips y hover effects */
+.btn-link:hover i {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
+
+/* Table header */
+.card-header h5 i {
+  font-size: 1.2rem;
+}
+
+/* Smooth transitions para todos los botones */
+button {
+  transition: all 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Link buttons */
+.btn-link {
+  color: var(--wurth-red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-link:hover {
+  color: var(--wurth-dark-red);
+}
+
+/* Footer info text */
+.card-footer small {
+  font-size: 0.85rem;
+}
+
+.card-footer i {
+  font-size: 0.9rem;
+}
