@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface PermisoRepository extends JpaRepository<PermisoLaboral, Long> {
     List<PermisoLaboral> findByEmpleadoId(Long empleadoId);
+    long countByEstado(EstadoPermiso estado);
 }
