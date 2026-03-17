@@ -16,6 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import org.springframework.web.cors.*;
+
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -23,58 +27,85 @@ public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
 
-    // 🔐 Encriptador de contraseña
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
-    // 🔐 Configuración de seguridad
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http)
+            throws Exception {
 
         http
+                .cors()
+                .and()
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // 🔓 Rutas públicas
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/auth/**")
+                        .permitAll()
 
-                        // 👥 Empleados (ambos roles)
                         .requestMatchers("/api/empleados/**")
-                        .hasAnyAuthority("ALMACENISTA", "JEFE_ALMACEN")
+                        .hasAnyAuthority("ALMACENISTA","JEFE_ALMACEN")
 
-                        // 📄 Permisos (ambos roles)
                         .requestMatchers("/api/permisos/**")
-                        .hasAnyAuthority("ALMACENISTA", "JEFE_ALMACEN")
+                        .hasAnyAuthority("ALMACENISTA","JEFE_ALMACEN")
 
-                        // ✅ Autorizaciones (solo jefe)
                         .requestMatchers("/api/autorizaciones/**")
                         .hasAuthority("JEFE_ALMACEN")
-                        //Reportes
+
                         .requestMatchers("/api/reportes/**")
                         .hasAuthority("JEFE_ALMACEN")
 
-                        // 🔒 Todo lo demás requiere autenticación
-                        .anyRequest().authenticated()
+                        .anyRequest()
+                        .authenticated()
                 )
 
-                // 🔥 Sin sesiones (JWT)
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS
+                        )
                 );
 
-        // 🔐 Filtro JWT antes del filtro de autenticación
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(
+                jwtFilter,
+                UsernamePasswordAuthenticationFilter.class
+        );
 
         return http.build();
     }
 
-    // 🔐 Authentication Manager
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource(){
+
+        CorsConfiguration configuration =
+                new CorsConfiguration();
+
+        configuration.setAllowedOrigins(
+                List.of("http://localhost:5173")
+        );
+
+        configuration.setAllowedMethods(
+                List.of("GET","POST","PUT","DELETE","OPTIONS")
+        );
+
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration("/**",configuration);
+
+        return source;
+    }
+
     @Bean
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config) throws Exception {
+            AuthenticationConfiguration config)
+            throws Exception {
+
         return config.getAuthenticationManager();
     }
 }

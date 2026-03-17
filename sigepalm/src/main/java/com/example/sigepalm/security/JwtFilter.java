@@ -5,21 +5,21 @@ import jakarta.servlet.http.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.
         UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.
+        SimpleGrantedAuthority;
 import org.springframework.security.core.context.
         SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
     private JwtUtil jwtUtil;
-
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(
@@ -30,23 +30,24 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String header = request.getHeader("Authorization");
 
-        if (header != null && header.startsWith("Bearer ")) {
+        if(header != null && header.startsWith("Bearer ")){
 
             String token = header.substring(7);
 
-            if (jwtUtil.isTokenValid(token)) {
+            if(jwtUtil.isTokenValid(token)){
 
-                String correo =
-                        jwtUtil.extractUsername(token);
+                String correo = jwtUtil.extractUsername(token);
+                String role = jwtUtil.extractRole(token);
 
-                var userDetails =
-                        userDetailsService.loadUserByUsername(correo);
+                var authorities = List.of(
+                        new SimpleGrantedAuthority(role)
+                );
 
                 var auth =
                         new UsernamePasswordAuthenticationToken(
-                                userDetails,
+                                correo,
                                 null,
-                                userDetails.getAuthorities()
+                                authorities
                         );
 
                 SecurityContextHolder.getContext()
@@ -54,6 +55,6 @@ public class JwtFilter extends OncePerRequestFilter {
             }
         }
 
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request,response);
     }
 }
