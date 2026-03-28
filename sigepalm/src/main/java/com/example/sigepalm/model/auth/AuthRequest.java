@@ -6,14 +6,21 @@ public class AuthRequest {
     private String password;
     private String role;
 
+    // 🔥 NUEVOS
+    private String nombre;
+    private String tipo;
+    private Long id;
 
-    public AuthRequest() {
-    }
+    // getters y setters
 
-    public AuthRequest(String correo, String password,String role) {
+
+    public AuthRequest(String correo, String password, String role, String nombre, String tipo, Long id) {
         this.correo = correo;
         this.password = password;
-        this.role=role;
+        this.role = role;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.id = id;
     }
 
     public String getCorreo() {
@@ -38,5 +45,29 @@ public class AuthRequest {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

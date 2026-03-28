@@ -35,6 +35,9 @@ public class PermisoController {
         );
     }
 
+
+
+
     // 🔹 Consultar todos los permisos
     @GetMapping
     public ResponseEntity<ApiResponse<List<PermisoLaboral>>> listarTodos() {
