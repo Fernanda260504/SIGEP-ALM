@@ -41,13 +41,12 @@ function Layout({ children, role }) {
           { icon: "bi-clipboard-check", label: "Aprobaciones", path: "/manager" },
           { icon: "bi-graph-up", label: "Reportes", path: "/manager/reports" },
           { icon: "bi-people", label: "Personal", path: "/manager/staff" },
-          { icon: "bi-gear", label: "Configuración", path: "/manager/settings" },
+          
         ]
       : [
           { icon: "bi-box-seam", label: "Mi Almacén", path: "/warehouse" },
           { icon: "bi-file-text", label: "Mis Permisos", path: "/warehouse/permissions" },
-          { icon: "bi-calendar-event", label: "Calendario", path: "/warehouse/calendar" },
-          { icon: "bi-person", label: "Mi Perfil", path: "/warehouse/profile" },
+        
         ];
 
   return (

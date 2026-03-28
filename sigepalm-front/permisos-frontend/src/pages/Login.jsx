@@ -42,6 +42,8 @@ function Login() {
       localStorage.setItem("role", data.role);
       localStorage.setItem("correo", data.correo);
       localStorage.setItem("name", data.nombre);
+      localStorage.setItem("id", data.id);
+      
 
       console.log("TOKEN:", localStorage.getItem("token"));
 

@@ -91,7 +91,7 @@ function ManagerApproval() {
             Authorization:`Bearer ${token}`
           },
           body:JSON.stringify({
-            estado:estado
+            decision:estado
           })
         }
       );
