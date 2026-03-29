@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./sigepalm   
+    container_name: sigepalm-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sigepalm
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  frontend:
+    build: ./sigepalm-front/permisos-frontend   
+    container_name: sigepalm-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8
+    container_name: sigepalm-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: sigepalm
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
